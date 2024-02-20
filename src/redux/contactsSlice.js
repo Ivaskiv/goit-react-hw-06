@@ -24,7 +24,7 @@ const contactsSlice = createSlice({
   },
   // Видалення контакту зі списку за його id
   deleteContact: (state, action) => {
-    state.items = state.items.filter(contact => contact.id !== action.payload);
+    state.items = state.items.filter(el => el.id !== action.payload);
   },
 });
 // Налаштування для зберігання стану контактів у локальному сховищі
