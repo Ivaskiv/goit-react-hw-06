@@ -41,18 +41,24 @@
   color: #888;
 }
 
-h1{
+h1 {
   color: #a32626;
 }
 
-.container{
+.container {
   display: flex;
   flex-direction: column;
   height: 100vh;
 }
 
-.searchText{
+.searchText {
   padding: 0 0 0 10px;
+  margin: 0;
+  text-align: start;
+  color: #a32626;
+}
+.noContactsText {
+  padding: 20px 0 0 0;
   margin: 0;
   text-align: start;
   color: #a32626;
