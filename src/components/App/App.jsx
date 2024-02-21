@@ -27,7 +27,7 @@ function App() {
       {filteredContacts.length !== 0 ? (
         <ContactList contacts={filteredContacts} onDelete={handleDeleteContact} />
       ) : (
-        <p className="noContactsText">There are no contacts in your phonebook!</p>
+        <p className="searchText">There are no contacts in your phonebook!</p>
       )}
     </div>
   );
