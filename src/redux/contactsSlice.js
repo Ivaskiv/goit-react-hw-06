@@ -15,7 +15,10 @@ const contactsSlice = createSlice({
 
     // Видалення контакту зі списку за його id
     deleteContact: (state, action) => {
-      state.items = state.items.filter(el => el.id !== action.payload);
+      const index = state.items.findIndex(el => el.id === action.payload);
+      if (index !== -1) {
+        state.items.splice(index, 1);
+      }
     },
   },
 });
