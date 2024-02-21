@@ -15,7 +15,7 @@ const contactsSlice = createSlice({
   },
   // Видалення контакту зі списку за його id
   deleteContact: (state, action) => {
-    state.items = state.items.filter(el => el.id !== action.payload);
+    return (state.items = state.items.filter(el => el.id !== action.payload));
   },
 });
 // Налаштування для зберігання стану контактів у локальному сховищі
@@ -25,6 +25,6 @@ const persistConfig = {
   whitelist: ['items'],
 };
 
-export const { addContact, prepare, deleteContact } = contactsSlice.actions;
+export const { addContact, deleteContact } = contactsSlice.actions;
 export const contactsReducer = persistReducer(persistConfig, contactsSlice.reducer);
 export const selectContacts = state => state.contacts.items;
