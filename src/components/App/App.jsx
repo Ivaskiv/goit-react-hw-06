@@ -15,7 +15,6 @@ function App() {
     contact.name.toLowerCase().includes(filterText.toLowerCase())
   );
   const handleDeleteContact = id => {
-    // диспетчер для виклику екшена видалення
     dispatch(deleteContact(id));
   };
   return (
