@@ -1,9 +1,8 @@
 import ContactForm from '../ContactForm/ContactForm.jsx';
 import ContactList from '../ContactList/ContactList.jsx';
 import SearchBox from '../SearchBox/SearchBox.jsx';
-import Contact from '../Contact/Contact.jsx';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContact, selectContacts } from '../../redux/contactsSlice.js';
+import { deleteContact, selectContacts } from '../../redux/contactsSlice';
 
 import './App.css';
 import { useState } from 'react';
@@ -26,19 +25,11 @@ function App() {
       <p className="searchText">Find contacts by name</p>
       <SearchBox filterText={filterText} onFilterChange={setFilterText} />
       {filteredContacts.length !== 0 ? (
-        <ContactList>
-          {filteredContacts.map(({ id, name, number }) => (
-            <Contact
-              key={id}
-              id={id}
-              name={name}
-              number={number}
-              onDelete={() => handleDeleteContact}
-            />
-          ))}
-        </ContactList>
+        <ContactList contacts={filteredContacts} onDelete={handleDeleteContact} />
       ) : (
-        'There are no contacts in your phonebook. Please add your first contact!'
+        <p className="searchText">
+          There are no contacts in your phonebook. Please add your first contact!
+        </p>
       )}
     </div>
   );

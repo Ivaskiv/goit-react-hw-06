@@ -1,4 +1,4 @@
-import { createSlice, nanoid } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 // Створення slice для управління контактами
@@ -11,15 +11,6 @@ const contactsSlice = createSlice({
     // Додавання контакту до списку
     addContact: (state, action) => {
       state.items = [...state.items, action.payload];
-    },
-    // Підготовка контакту до додавання, генерація унікального id
-    prepare(contact) {
-      return {
-        payload: {
-          ...contact,
-          id: nanoid(),
-        },
-      };
     },
   },
   // Видалення контакту зі списку за його id
@@ -34,6 +25,6 @@ const persistConfig = {
   whitelist: ['items'],
 };
 
-export const { addContact, deleteContact } = contactsSlice.actions;
+export const { addContact, prepare, deleteContact } = contactsSlice.actions;
 export const contactsReducer = persistReducer(persistConfig, contactsSlice.reducer);
 export const selectContacts = state => state.contacts.items;
