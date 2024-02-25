@@ -4,17 +4,22 @@ const filtersSlice = createSlice({
   name: 'filters',
   initialState: {
     nameFilter: '',
+    textFilter: '',
   },
   reducers: {
     setNameFilter: (state, action) => {
       state.nameFilter = action.payload;
     },
+    setTextFilter: (state, action) => {
+      state.textFilter = action.payload;
+    },
   },
 });
 
-export const { setNameFilter } = filtersSlice.actions;
+export const { setNameFilter, setTextFilter } = filtersSlice.actions;
 export const filtersReducer = filtersSlice.reducer;
-export const selectFilter = state => state.filters.nameFilter;
+export const selectNameFilter = state => state.filters.nameFilter;
+export const selectTextFilter = state => state.filters.textFilter;
 
 // createSlice - створює slice з іменем "filters" із початковим станом, що містить nameFilter (початково порожній рядок)
 // setNameFilter - редюсер, який приймає поточний стан і дію з новим значенням фільтру. Він оновлює nameFilter у стані за допомогою значення дії

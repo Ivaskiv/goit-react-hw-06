@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact, selectContacts } from '../../redux/contactsSlice';
 import Contact from '../Contact/Contact.jsx';
 import css from '../ContactList/ContactList.module.css';
+import { selectTextFilter } from '../../redux/filtersSlice.js';
 
 const filterContacts = (contacts, filter) => {
   return contacts.filter(contact => contact.name.toLowerCase().includes(filter.toLowerCase()));
@@ -10,7 +11,7 @@ const filterContacts = (contacts, filter) => {
 const ContactList = () => {
   const dispatch = useDispatch();
   const allContacts = useSelector(selectContacts);
-  const filterText = useSelector(state => state.contacts.filterText);
+  const filterText = useSelector(selectTextFilter);
 
   const filteredContacts = filterContacts(allContacts, filterText);
 

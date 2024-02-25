@@ -1,13 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { setFilterText } from '../../redux/contactsSlice';
+import { selectTextFilter, setTextFilter } from '../../redux/filtersSlice';
 import css from './SearchBox.module.css';
 
 const SearchBox = () => {
   const dispatch = useDispatch();
-  const filterText = useSelector(state => state.contacts.filterText);
+  const filterText = useSelector(selectTextFilter);
 
   const handleFilterChange = e => {
-    dispatch(setFilterText(e.target.value));
+    dispatch(setTextFilter(e.target.value));
   };
 
   return (
